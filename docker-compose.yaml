@@ -5,10 +5,10 @@ services:
     hostname: kazoo.local
     build:
       args:
-        KAZOO_VERSION: 4.1.43
-        KAZOO_CONFIGS_VERSION: 4.1.21
+        KAZOO_VERSION: 4.3
+        KAZOO_CONFIGS_VERSION: 4.3
       context: images/kazoo
-    image: telephoneorg/kazoo:${DOCKER_TAG:-latest}
+    image: lluisyast/kazoo:${DOCKER_TAG:-latest}
     environment:
       ERLANG_HOSTNAME: long
       ERLANG_COOKIE: test-cookie
@@ -37,7 +37,7 @@ services:
   rabbitmq:
     container_name: rabbitmq
     hostname: rabbitmq.local
-    image: telephoneorg/rabbitmq:latest
+    image: lluisyast/rabbitmq:latest
     environment:
       ERLANG_HOSTNAME: long
       ERLANG_COOKIE: test-cookie
@@ -50,7 +50,7 @@ services:
   couchdb:
     container_name: couchdb
     hostname: couchdb.local
-    image: telephoneorg/couchdb:latest
+    image: lluisyast/couchdb:latest
     environment:
       COUCHDB_DEV_INIT: 'true'
       ERLANG_COOKIE: test-cookie
@@ -70,11 +70,11 @@ services:
   kzutil:
     build:
       args:
-        KAZOO_VERSION: 4.1.43
+        KAZOO_VERSION: 4.3
       context: images/kzutil
-    image: telephoneorg/kzutil:${DOCKER_TAG:-latest}
+    image: lluisyast/kzutil:${DOCKER_TAG:-latest}
   couchdb-data:
     build: images/couchdb-data
-    image: telephoneorg/couchdb-data:${DOCKER_TAG:-latest}
+    image: lluisyast/couchdb-data:${DOCKER_TAG:-latest}
 networks:
   local:
