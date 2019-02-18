@@ -22,8 +22,8 @@ pushd $tmpd
 	log::m-info "Kazoo $KAZOO_VERSION & Kazoo Configs $KAZOO_CONFIGS_VERSION"
 	log::m-info "  Downloading ..."
 
-	curl -sLO https://github.com/telephoneorg/kazoo-builder/releases/download/v$KAZOO_VERSION/kazoo_${KAZOO_VERSION}.deb
-	curl -sLO https://github.com/telephoneorg/kazoo-builder/releases/download/v$KAZOO_VERSION/kazoo-configs_${KAZOO_CONFIGS_VERSION}.deb
+	curl -sLO https://github.com/lluisyast/kazoo-builder/releases/download/v$KAZOO_VERSION/kazoo_${KAZOO_VERSION}.deb
+	curl -sLO https://github.com/lluisyast/kazoo-builder/releases/download/v$KAZOO_VERSION/kazoo-configs_${KAZOO_CONFIGS_VERSION}.deb
 	log::m-info "  Installing ..."
 	apt install -y ./*.deb
 	popd && rm -rf $tmpd && unset tmpd
